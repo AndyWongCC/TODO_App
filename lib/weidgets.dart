@@ -3,9 +3,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class TaskCardWidget extends StatelessWidget {
-  // final String title;
-  // TODO: Error
-  // TaskCardWidget({this.title});
+  final String title;
+  final String desc;
+  TaskCardWidget({this.title = "Empty", this.desc = "Empty"});
   // TODO: SuccessCase: But cannot modify
   // TaskCardWidget({required this.title})
 
@@ -22,8 +22,7 @@ class TaskCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              // title ?? "Empty",
-              "Get Start",
+              title,
               style: TextStyle(
                   color: Color.fromARGB(255, 121, 97, 216),
                   fontSize: 24.0,
@@ -32,13 +31,49 @@ class TaskCardWidget extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(bottom: 10),
             ),
-            Text(
-                "Hi, User! Welcome to the TODO App. It helps you to keep track on things, please try and give us some feedback.",
+            Text(desc,
                 style: TextStyle(
                   color: Color.fromARGB(255, 108, 71, 255),
                   fontSize: 16,
                   height: 1.5,
                 )),
+          ],
+        ));
+  }
+}
+
+class TODOWidget extends StatelessWidget {
+  final String text;
+  final bool isDone;
+  TODOWidget({this.text = "NULL", this.isDone = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 32,
+          vertical: 8,
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 20,
+              height: 20,
+              margin: EdgeInsets.only(right: 12),
+              decoration: BoxDecoration(
+                  color: isDone ? Color(0xFF7349FE) : Colors.transparent,
+                  borderRadius: BorderRadius.circular(6.0)),
+              child: Image(image: AssetImage('assets/images/check_icon.png')),
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                  color: isDone
+                      ? Color(0xFF7349FE)
+                      : Color.fromARGB(255, 115, 115, 115),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
           ],
         ));
   }

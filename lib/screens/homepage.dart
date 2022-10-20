@@ -33,13 +33,14 @@ class _HomepageState extends State<Homepage> {
                     Container(
                       margin: EdgeInsets.only(top: 5, bottom: 18),
                     ),
-                    //TODO: Solve Scolling page
                     Expanded(
                       child: ListView(
                         children: [
                           TaskCardWidget(
-                              // title: 'Get Start',
-                              ),
+                            title: 'Get Start',
+                            desc:
+                                "Hi, User! Welcome to the TODO App. It helps you to keep track on things, please try and give us some feedback.",
+                          ),
                           TaskCardWidget(
                               // title: 'Get Start',
                               ),
