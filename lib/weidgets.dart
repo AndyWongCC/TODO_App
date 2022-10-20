@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class TaskCardWidget extends StatelessWidget {
   // final String title;
-  // Error for this.title
+  // TODO: Error
   // TaskCardWidget({this.title});
-  // OK
+  // TODO: SuccessCase: But cannot modify
   // TaskCardWidget({required this.title})
 
   @override
@@ -25,8 +25,8 @@ class TaskCardWidget extends StatelessWidget {
               // title ?? "Empty",
               "Get Start",
               style: TextStyle(
-                  color: Color(0xFF211551),
-                  fontSize: 22.0,
+                  color: Color.fromARGB(255, 121, 97, 216),
+                  fontSize: 24.0,
                   fontWeight: FontWeight.bold),
             ),
             Container(
@@ -35,6 +35,7 @@ class TaskCardWidget extends StatelessWidget {
             Text(
                 "Hi, User! Welcome to the TODO App. It helps you to keep track on things, please try and give us some feedback.",
                 style: TextStyle(
+                  color: Color.fromARGB(255, 108, 71, 255),
                   fontSize: 16,
                   height: 1.5,
                 )),

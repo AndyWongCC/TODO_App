@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:todoapp/screens/taskpage.dart';
 import 'package:todoapp/weidgets.dart';
 
 class Homepage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HomepageState extends State<Homepage> {
       body: SafeArea(
         child: Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 36, horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 36),
             color: Color(0xFFF6F6F6),
             child: Stack(
               children: [
@@ -30,24 +31,51 @@ class _HomepageState extends State<Homepage> {
                       image: AssetImage('assets/images/logo.png'),
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom: 32),
+                      margin: EdgeInsets.only(top: 5, bottom: 18),
                     ),
-                    TaskCardWidget(
-                        // title: 'Get Start',
-                        ),
+                    //TODO: Solve Scolling page
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          TaskCardWidget(
+                              // title: 'Get Start',
+                              ),
+                          TaskCardWidget(
+                              // title: 'Get Start',
+                              ),
+                          TaskCardWidget(
+                              // title: 'Get Start',
+                              ),
+                          TaskCardWidget(
+                              // title: 'Get Start',
+                              ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 5, bottom: 58),
+                    ),
                   ],
                 ),
                 Positioned(
                   bottom: 0.0,
                   right: 0.0,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 168, 153, 219),
-                        borderRadius: BorderRadius.circular(22.0)),
-                    child: Image(
-                        width: 40,
-                        height: 40,
-                        image: AssetImage('assets/images/add_icon.png')),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Taskpage()),
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 201, 188, 245),
+                          borderRadius: BorderRadius.circular(20.0)),
+                      child: Image(
+                          width: 40,
+                          height: 40,
+                          image: AssetImage('assets/images/add_icon.png')),
+                    ),
                   ),
                 )
               ],
