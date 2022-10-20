@@ -39,6 +39,9 @@ class _TaskpageState extends State<Taskpage> {
                     ),
                     Expanded(
                       child: TextField(
+                        onSubmitted: (value) {
+                          print("Field Value: $value");
+                        },
                         decoration: InputDecoration(
                           hintText: "Enter Task Title",
                           border: InputBorder.none,
