@@ -43,10 +43,19 @@ class _HomepageState extends State<Homepage> {
                           return ScrollConfiguration(
                             behavior: NoGlowBehavior(),
                             child: ListView.builder(
-                                itemCount: snapshot.data!.length,
+                                itemCount: snapshot.data?.length,
                                 itemBuilder: (context, index) {
-                                  return TaskCardWidget(
-                                    title: snapshot.data![index].title,
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Taskpage()));
+                                    },
+                                    child: TaskCardWidget(
+                                      title: snapshot.data?[index].title,
+                                    ),
                                   );
                                 }),
                           );

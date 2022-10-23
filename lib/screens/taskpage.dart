@@ -6,13 +6,15 @@ import 'package:todoapp/models/task.dart';
 import 'package:todoapp/weidgets.dart';
 
 class Taskpage extends StatefulWidget {
-  const Taskpage({super.key});
+  final int? id;
+  const Taskpage({this.id});
 
   @override
   State<Taskpage> createState() => _TaskpageState();
 }
 
 class _TaskpageState extends State<Taskpage> {
+  int num = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,12 +43,20 @@ class _TaskpageState extends State<Taskpage> {
                     ),
                     Expanded(
                       child: TextField(
-                        onSubmitted: (value) {
+                        onSubmitted: (value) async {
                           print("Field Value: $value");
+
                           if (value != "") {
+                            num += 1;
                             DatabaseHelper _dbHelper = DatabaseHelper();
-                            Task _newTask = Task(title: value);
+
+                            Task _newTask = Task(
+                              title: value,
+                            );
+
                             _dbHelper.insertTask(_newTask);
+
+                            print("New task has been created");
                           }
                         },
                         decoration: InputDecoration(
